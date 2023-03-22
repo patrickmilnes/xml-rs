@@ -1,3 +1,6 @@
+mod lexer;
+mod util;
+
 pub struct XmlDocument<'a> {
     pub path: &'a str,
     pub root: Option<Box<&'a XmlNode<'a>>>,
@@ -36,7 +39,7 @@ impl<'a> XmlNode<'a> {
 }
 
 #[cfg(test)]
-mod tests {
+mod core {
     use crate::{XmlDocument, XmlNode};
 
     #[test]
@@ -51,5 +54,10 @@ mod tests {
         let node = XmlNode::new(Option::None, "root", Option::None, Vec::new());
         assert_eq!(node.tag, "root");
         assert_eq!(node.value, Option::None);
+    }
+
+    #[test]
+    fn parse_xml_test() {
+        // What do I want the api to look like?
     }
 }
